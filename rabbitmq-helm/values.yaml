@@ -9,8 +9,8 @@ image:
 service:
   name: rabbitmq
   type: NodePort
-  externalPort: 80
-  internalPort: 80
+  externalPort: 5672
+  internalPort: 5672
 ingress:
   enabled: false
   # Used to create Ingress record (should used with service.type: ClusterIP).
