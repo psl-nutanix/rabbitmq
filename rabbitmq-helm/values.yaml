@@ -11,6 +11,16 @@ service:
   type: NodePort
   externalPort: 5672
   internalPort: 5672
+configEnvs:
+  #RABBITMQ_NODENAME: rabbit@localhost
+  RABBITMQ_NODE_TYPE: stats
+  RABBITMQ_CLUSTER_NODE_NAME: ''
+  RABBITMQ_VHOST: /
+persistence:
+  enabled: true
+  storageClass: ''
+  accessMode: ReadWriteOnce
+  size: 8Gi
 ingress:
   enabled: false
   # Used to create Ingress record (should used with service.type: ClusterIP).
@@ -27,8 +37,8 @@ ingress:
 resources:
   limits:
     cpu: 100m
-    memory: 128Mi
+    memory: 256Mi
   requests:
     cpu: 100m
-    memory: 128Mi
+    memory: 256Mi
 
