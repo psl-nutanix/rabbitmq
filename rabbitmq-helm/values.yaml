@@ -16,6 +16,8 @@ configEnvs:
   RABBITMQ_NODE_TYPE: stats
   RABBITMQ_CLUSTER_NODE_NAME: ''
   RABBITMQ_VHOST: /
+plugins:
+  [rabbitmq_management, rabbitmq_peer_discovery_k8s]
 persistence:
   enabled: true
   storageClass: ''
