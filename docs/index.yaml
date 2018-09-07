@@ -2,11 +2,11 @@ apiVersion: v1
 entries:
   rabbitmq-helm:
   - apiVersion: v1
-    created: 2018-09-05T06:32:15.368856037-04:00
+    created: 2018-09-06T23:25:57.560151504-04:00
     description: A Helm chart for Kubernetes
-    digest: bd2822fe1896a2888f1b2175feca4b7f5d4518c7c443265df6b96807a11cb34d
+    digest: 589f11a3fdfebcb3ead3fb7cd484d3214b77508edcb418026125d64c4e2b6277
     name: rabbitmq-helm
     urls:
     - https://psl-nutanix.github.io/rabbitmq/rabbitmq-helm-0.1.0.tgz
     version: 0.1.0
-generated: 2018-09-05T06:32:15.360248705-04:00
+generated: 2018-09-06T23:25:57.559169008-04:00

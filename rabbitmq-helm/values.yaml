@@ -11,15 +11,16 @@ service:
   type: NodePort
   externalPort: 5672
   internalPort: 5672
+  rabbitmqManagerPort: 15671
 configEnvs:
-  #RABBITMQ_NODENAME: rabbit@localhost
+  RABBITMQ_NODENAME: rabbit
   RABBITMQ_NODE_TYPE: stats
   RABBITMQ_CLUSTER_NODE_NAME: ''
   RABBITMQ_VHOST: /
 plugins:
   [rabbitmq_management, rabbitmq_peer_discovery_k8s]
 persistence:
-  enabled: true
+  enabled: false
   storageClass: ''
   accessMode: ReadWriteOnce
   size: 8Gi

@@ -1,0 +1,13 @@
+== Info: Rebuilt URL to: http://10.88.67.71:32215/
+== Info:   Trying 10.88.67.71...
+== Info: Connected to 10.88.67.71 (10.88.67.71) port 32215 (#0)
+=> Send header, 81 bytes (0x51)
+0000: GET / HTTP/1.1
+0010: Host: 10.88.67.71:32215
+0029: User-Agent: curl/7.47.0
+0042: Accept: */*
+004f: 
+<= Recv data, 8 bytes (0x8)
+0000: AMQP....
+== Info: Recv failure: Connection reset by peer
+== Info: Closing connection 0

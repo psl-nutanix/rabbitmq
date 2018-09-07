@@ -15,8 +15,30 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: K8S_SERVICE_NAME
+          value: {{ template "fullname" . }}
+        - name: RABBITMQ_NODE_TYPE
+          value: {{ .Values.configEnvs.RABBITMQ_NODE_TYPE | quote }}
+        - name: RABBITMQ_NODENAME
+          value: {{ printf "%s@%s" .Values.configEnvs.RABBITMQ_NODENAME "localhost" | quote }}
+        - name: RABBITMQ_CLUSTER_NODE_NAME
+          value: {{ .Values.configEnvs.RABBITMQ_CLUSTER_NODE_NAME | quote }}
+        - name: RABBITMQ_DEFAULT_VHOST
+          value: {{ .Values.configEnvs.RABBITMQ_VHOST | quote }}
         ports:
-        - containerPort: {{ .Values.service.internalPort }}
+        - name: epmd
+          containerPort: 4369
+        - name: ampq
+          containerPort: {{ .Values.service.internalPort }}
+        - name: dist
+          containerPort: 25672
+        - name: stats
+          containerPort: 15672
 #        livenessProbe:
 #          httpGet:
 #            path: /

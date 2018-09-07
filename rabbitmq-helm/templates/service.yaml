@@ -7,9 +7,15 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-  - port: {{ .Values.service.externalPort }}
-    targetPort: {{ .Values.service.internalPort }}
-    protocol: TCP
-    name: {{ .Values.service.name }}
-  selector:
-    app: {{ template "fullname" . }}
+  - name: epmd
+    port: 4369
+    targetPort: epmd
+  - name: ampq
+    port: {{ .Values.service.internalPort }}
+    targetPort: ampq
+  - name: dist
+    port: {{ .Values.service.internalPort | add 20000 }}
+    targetPort: dist
+  - name: stats
+    port: {{ .Values.service.rabbitmqManagerPort }}
+    targetPort: stats
